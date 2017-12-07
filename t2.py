@@ -1,17 +1,12 @@
 from sys import stdin
 
 import time
+import math
 
 start = time.time()
 
-
 #really high value
-infinite = 123456789
-
-N = 10000
-
-#matrix used for memorization in dp
-memo_table = [[0]*(N+5) for i in range(N+5)]
+infinite = math.inf
 
 # actual problem solving
 while True:
@@ -23,6 +18,9 @@ while True:
 
 	#reading number of stick cuts
 	ncuts = int(stdin.readline())
+
+	#matrix used for memorization in dp
+	memo_table = [[-1]*(ncuts+2) for i in range(ncuts+2)]
 
 	#reading stick cuts
 	cuts = [0]
@@ -51,7 +49,7 @@ while True:
 				memo_table[i][j] += current_cut_price
 
 	#printing the result
-	print('The minimum cutting is {0}.'.format(memo_table[0][ncuts+1]))
+	print('The minimum cutting cost is {0}.'.format(memo_table[0][ncuts+1]))
+
 end = time.time()
-print("Tempo de exec: ", end = '')
-print (end - start)
+print("Exec time: {0:.3g}s".format(end - start))
