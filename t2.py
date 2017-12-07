@@ -1,10 +1,17 @@
 from sys import stdin
 
+import time
+
+start = time.time()
+
+
 #really high value
-infinite = 12345678
+infinite = 123456789
+
+N = 10000
 
 #matrix used for memorization in dp
-memo_table = [[0]*51 for i in range(51)]
+memo_table = [[0]*(N+5) for i in range(N+5)]
 
 # actual problem solving
 while True:
@@ -45,3 +52,6 @@ while True:
 
 	#printing the result
 	print('The minimum cutting is {0}.'.format(memo_table[0][ncuts+1]))
+end = time.time()
+print("Tempo de exec: ", end = '')
+print (end - start)
